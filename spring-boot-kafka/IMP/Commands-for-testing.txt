@@ -9,7 +9,8 @@ Start Apache Kafka
 		
 Next start the Spring Boot Application by running it as a Java Application.
 
-Also Start the consumer listening to the usk_test
-		.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic java_in_use_topic --from-beginning
+		Not required
+			Also Start the consumer listening to the usk_test
+			.\bin\windows\kafka-console-consumer.bat --bootstrap-server localhost:9092 --topic usk_test --from-beginning
 		
 hit the url as follows- http://localhost:8081/usk-kafka/producer?message=Santhosh
