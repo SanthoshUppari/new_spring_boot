@@ -3,7 +3,7 @@ Start Apache Zookeeper
 		OR
 		.\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 
-		
+
 Start Apache Kafka
 		.\bin\windows\kafka-server-start.bat .\config\server.properties
 		
