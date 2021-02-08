@@ -1,0 +1,3 @@
+prometheus.exe --config.file=./prometheus.yml
+
+grafana-server.exe
