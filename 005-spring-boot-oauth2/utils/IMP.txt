@@ -1,0 +1,3 @@
+Oauth2
+	https://levelup.gitconnected.com/spring-boot-2-oauth2-integration-for-standalone-or-micro-services-use-31f56b907cb7
+
