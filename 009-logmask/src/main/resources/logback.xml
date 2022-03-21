@@ -1,0 +1,48 @@
+<configuration>
+
+	<appender name="STDOUT"
+		class="ch.qos.logback.core.ConsoleAppender">
+		<encoder
+			class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="com.usk.logmask.config.MaskingPatternLayout">
+				<maskPattern>(\d{10})</maskPattern> <!-- Phone number pattern -->
+				<maskPattern>\"password\":(?=.*[A-Z])(?=.*[a-z])(?=.*?[0-9]).{8,}</maskPattern>
+				<maskPattern>(\w+@\w+\.\w+)</maskPattern> <!-- Email pattern -->
+				<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+				</pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<appender name="FILE"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/usk.log</file>
+		<rollingPolicy
+			class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>logs/usk.%i.log.zip</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>3</maxIndex>
+		</rollingPolicy>
+
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>10MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder
+			class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+			<layout class="com.usk.logmask.config.MaskingPatternLayout">
+				<maskPattern>(\d{10})</maskPattern> <!-- Phone number pattern -->
+				<maskPattern>((?=.*[A-Z])(?=.*[a-z])(?=.*?[0-9]).{8,})</maskPattern>
+				<maskPattern>(\w+@\w+\.\w+)</maskPattern> <!-- Email pattern -->
+				<pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+				</pattern>
+			</layout>
+		</encoder>
+	</appender>
+
+	<root level="info">
+		<appender-ref ref="STDOUT" />
+		<appender-ref ref="FILE" />
+	</root>
+
+</configuration>
